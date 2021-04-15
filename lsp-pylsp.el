@@ -34,7 +34,7 @@
   :group 'lsp-mode
   :link '(url-link "https://github.com/python-lsp/python-lsp-server"))
 
-(defcustom lsp-clients-python-library-directories '("/usr/")
+(defcustom lsp-clients-pylsp-library-directories '("/usr/")
   "List of directories which will be considered to be libraries."
   :risky t
   :type '(repeat string)
@@ -426,7 +426,7 @@ So it will rename only references it can find."
                   :major-modes '(python-mode cython-mode)
                   :priority 1
                   :server-id 'pylsp
-                  :library-folders-fn (lambda (_workspace) lsp-clients-python-library-directories)
+                  :library-folders-fn (lambda (_workspace) lsp-clients-pylsp-library-directories)
                   :initialized-fn (lambda (workspace)
                                     (with-lsp-workspace workspace
                                       (lsp--set-configuration (lsp-configuration-section "pylsp"))))))
